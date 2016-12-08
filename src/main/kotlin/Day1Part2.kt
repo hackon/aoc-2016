@@ -39,13 +39,10 @@ fun main(args: Array<String>) {
     }
 
     IntRange(1, direction.second).forEach {
-      val lastPoint: Point = Point(currentPoint)
       currentPoint.translate(directionMap[index].x, directionMap[index].y)
-      distance += (currentPoint.x - lastPoint.x) + (currentPoint.y - lastPoint.y)
-//      distance += (lastPoint.x - currentPoint.x) + (lastPoint.y - currentPoint.y)
       if (!foundFirstIntersection && points.contains(currentPoint)) {
         print(currentPoint)
-        println(points.get(currentPoint))
+        println("distanse: ${Math.abs(currentPoint.x) + Math.abs(currentPoint.y)}")
         foundFirstIntersection = true
       } else {
         points.put(Point(currentPoint), distance)
